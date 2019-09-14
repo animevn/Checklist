@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F107551A232C8B07006C304C /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1075519232C8B07006C304C /* ChecklistItem.swift */; };
-		F1100A1A232CCAE6008A9C66 /* AddItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1100A19232CCAE6008A9C66 /* AddItemVC.swift */; };
+		F1100A1A232CCAE6008A9C66 /* ItemDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1100A19232CCAE6008A9C66 /* ItemDetailVC.swift */; };
 		F111B8E3232C60D2006AB2A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B8E2232C60D2006AB2A5 /* AppDelegate.swift */; };
 		F111B8E5232C60D2006AB2A5 /* ChecklistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B8E4232C60D2006AB2A5 /* ChecklistVC.swift */; };
 		F111B8E8232C60D2006AB2A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F111B8E6232C60D2006AB2A5 /* Main.storyboard */; };
@@ -17,7 +17,7 @@
 
 /* Begin PBXFileReference section */
 		F1075519232C8B07006C304C /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
-		F1100A19232CCAE6008A9C66 /* AddItemVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemVC.swift; sourceTree = "<group>"; };
+		F1100A19232CCAE6008A9C66 /* ItemDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailVC.swift; sourceTree = "<group>"; };
 		F111B8DF232C60D2006AB2A5 /* Checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F111B8E2232C60D2006AB2A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F111B8E4232C60D2006AB2A5 /* ChecklistVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistVC.swift; sourceTree = "<group>"; };
@@ -58,8 +58,8 @@
 			children = (
 				F111B8E2232C60D2006AB2A5 /* AppDelegate.swift */,
 				F111B8E4232C60D2006AB2A5 /* ChecklistVC.swift */,
+				F1100A19232CCAE6008A9C66 /* ItemDetailVC.swift */,
 				F1075519232C8B07006C304C /* ChecklistItem.swift */,
-				F1100A19232CCAE6008A9C66 /* AddItemVC.swift */,
 				F111B8E6232C60D2006AB2A5 /* Main.storyboard */,
 				F111B8E9232C60D3006AB2A5 /* Assets.xcassets */,
 				F111B8EE232C60D3006AB2A5 /* Info.plist */,
@@ -139,7 +139,7 @@
 			files = (
 				F111B8E5232C60D2006AB2A5 /* ChecklistVC.swift in Sources */,
 				F107551A232C8B07006C304C /* ChecklistItem.swift in Sources */,
-				F1100A1A232CCAE6008A9C66 /* AddItemVC.swift in Sources */,
+				F1100A1A232CCAE6008A9C66 /* ItemDetailVC.swift in Sources */,
 				F111B8E3232C60D2006AB2A5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
