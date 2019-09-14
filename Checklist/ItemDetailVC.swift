@@ -1,6 +1,6 @@
 import UIKit
 
-protocol ItemDetailDelegate: class{
+protocol ItemDetailDelegate:class{
     
     func itemDetailDidCancel(_ controller:ItemDetailVC)
     func itemDetail(_ controller: ItemDetailVC, didFinishAdding item:ChecklistItem)

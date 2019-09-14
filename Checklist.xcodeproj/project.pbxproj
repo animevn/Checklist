@@ -13,6 +13,9 @@
 		F111B8E5232C60D2006AB2A5 /* ChecklistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111B8E4232C60D2006AB2A5 /* ChecklistVC.swift */; };
 		F111B8E8232C60D2006AB2A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F111B8E6232C60D2006AB2A5 /* Main.storyboard */; };
 		F111B8EA232C60D3006AB2A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F111B8E9232C60D3006AB2A5 /* Assets.xcassets */; };
+		F1B9442D232D4F21002FF225 /* AllListsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9442C232D4F21002FF225 /* AllListsVC.swift */; };
+		F1B9442F232D50C5002FF225 /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9442E232D50C5002FF225 /* Checklist.swift */; };
+		F1B94431232D57A1002FF225 /* ListDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B94430232D57A1002FF225 /* ListDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		F111B8E7232C60D2006AB2A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F111B8E9232C60D3006AB2A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F111B8EE232C60D3006AB2A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1B9442C232D4F21002FF225 /* AllListsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListsVC.swift; sourceTree = "<group>"; };
+		F1B9442E232D50C5002FF225 /* Checklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
+		F1B94430232D57A1002FF225 /* ListDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				F111B8E2232C60D2006AB2A5 /* AppDelegate.swift */,
+				F1B9442C232D4F21002FF225 /* AllListsVC.swift */,
+				F1B94430232D57A1002FF225 /* ListDetailVC.swift */,
 				F111B8E4232C60D2006AB2A5 /* ChecklistVC.swift */,
 				F1100A19232CCAE6008A9C66 /* ItemDetailVC.swift */,
+				F1B9442E232D50C5002FF225 /* Checklist.swift */,
 				F1075519232C8B07006C304C /* ChecklistItem.swift */,
 				F111B8E6232C60D2006AB2A5 /* Main.storyboard */,
 				F111B8E9232C60D3006AB2A5 /* Assets.xcassets */,
@@ -138,6 +147,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F111B8E5232C60D2006AB2A5 /* ChecklistVC.swift in Sources */,
+				F1B9442D232D4F21002FF225 /* AllListsVC.swift in Sources */,
+				F1B94431232D57A1002FF225 /* ListDetailVC.swift in Sources */,
+				F1B9442F232D50C5002FF225 /* Checklist.swift in Sources */,
 				F107551A232C8B07006C304C /* ChecklistItem.swift in Sources */,
 				F1100A1A232CCAE6008A9C66 /* ItemDetailVC.swift in Sources */,
 				F111B8E3232C60D2006AB2A5 /* AppDelegate.swift in Sources */,

@@ -3,20 +3,18 @@ import UIKit
 class ChecklistVC: UITableViewController, ItemDetailDelegate{
     
     private var items:[ChecklistItem]
+    var checklist:Checklist!
 
     required init?(coder aDecoder: NSCoder) {
-        
         items = [ChecklistItem]()
-        
-        
         super.init(coder: aDecoder)
+        
         loadChecklist()
-        print("Documents folder is \(documentsDirectory())")
-        print("Data file path is \(dataFilePath())")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = checklist.name
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
