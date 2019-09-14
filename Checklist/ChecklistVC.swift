@@ -1,6 +1,6 @@
 import UIKit
 
-class ChecklistVC: UITableViewController {
+class ChecklistVC: UITableViewController, AddItemViewControllerDelegate{
     
     private var items:[ChecklistItem]
 
@@ -69,19 +69,15 @@ class ChecklistVC: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    @IBAction func addItem(){
+    private func addItem(item:ChecklistItem){
         let newRowIndex = items.count
-        
-        let item = ChecklistItem()
-        item.text = "Create a new row"
-        item.checked = false
         items.append(item)
-        
         let indexPath = IndexPath(row: newRowIndex, section: 0)
         let indexPaths = [indexPath]
         tableView.insertRows(at: indexPaths, with: .automatic)
     }
     
+    //delete row
     override func tableView(
         _ tableView: UITableView,
         commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -89,8 +85,23 @@ class ChecklistVC: UITableViewController {
         items.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
-        
     }
     
+    func addItemViewControllerDidCancel(_ controller: AddItemVC) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func addItemViewController(_ controller: AddItemVC, didFinishAdding item: ChecklistItem) {
+        addItem(item: item)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addItem"{
+            let navigation = segue.destination as! UINavigationController
+            let controller = navigation.topViewController as! AddItemVC
+            controller.delegate = self
+        }
+    }
 }
 
