@@ -7,6 +7,7 @@ protocol ItemDetailDelegate: class{
     func itemDetail(_ controller: ItemDetailVC, didFinishEditing item:ChecklistItem)
 }
 
+
 class ItemDetailVC:UITableViewController, UITextFieldDelegate{
     
     @IBOutlet weak var bnDone: UIBarButtonItem!

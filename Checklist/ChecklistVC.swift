@@ -8,32 +8,11 @@ class ChecklistVC: UITableViewController, ItemDetailDelegate{
         
         items = [ChecklistItem]()
         
-        let row0item = ChecklistItem()
-        row0item.text = "Java is King"
-        row0item.checked = false
-        items.append(row0item)
-        
-        let row1item = ChecklistItem()
-        row1item.text = "Swift is just a Kotlin follower"
-        row1item.checked = false
-        items.append(row1item)
-        
-        let row2item = ChecklistItem()
-        row2item.text = "Apple love your $$$ hahaha"
-        row2item.checked = false
-        items.append(row2item)
-        
-        let row3item = ChecklistItem()
-        row3item.text = "Xcode sucks big time"
-        row3item.checked = false
-        items.append(row3item)
-        
-        let row4item = ChecklistItem()
-        row4item.text = "Still need Swift and Xcode though"
-        row4item.checked = false
-        items.append(row4item)
         
         super.init(coder: aDecoder)
+        loadChecklist()
+        print("Documents folder is \(documentsDirectory())")
+        print("Data file path is \(dataFilePath())")
     }
     
     override func viewDidLoad() {
@@ -87,15 +66,18 @@ class ChecklistVC: UITableViewController, ItemDetailDelegate{
         items.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
         tableView.reloadData()
+        saveChecklist()
     }
     
     func itemDetailDidCancel(_ controller: ItemDetailVC) {
         dismiss(animated: true, completion: nil)
+        saveChecklist()
     }
     
     func itemDetail(_ controller: ItemDetailVC, didFinishAdding item: ChecklistItem) {
         addItem(item: item)
         dismiss(animated: true, completion: nil)
+        saveChecklist()
     }
     
     func itemDetail(_ controller: ItemDetailVC, didFinishEditing item: ChecklistItem) {
@@ -109,6 +91,7 @@ class ChecklistVC: UITableViewController, ItemDetailDelegate{
         
         tableView.reloadData()
         dismiss(animated: true, completion: nil)
+        saveChecklist()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -123,6 +106,44 @@ class ChecklistVC: UITableViewController, ItemDetailDelegate{
                 if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
                     controller.itemToEdit = items[indexPath.row]
             }
+        }
+    }
+    
+    private func documentsDirectory()->URL{
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    
+    private func dataFilePath()->URL{
+        return documentsDirectory().appendingPathComponent("checklist.plist")
+    }
+    
+    private func saveChecklist(){
+        do{
+            let data = try NSKeyedArchiver.archivedData(
+                withRootObject: items,
+                requiringSecureCoding: false)
+            do{
+                try data.write(to: dataFilePath(), options: .atomic)
+            }catch let error{
+                print(error)
+            }
+        }catch let error{
+            print(error)
+        }
+    }
+    
+    private func loadChecklist(){
+        let path = dataFilePath()
+        do{
+            let data = try Data(contentsOf: path)
+            do{
+                items = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as! [ChecklistItem]
+            }catch let error{
+                print(error)
+            }
+        }catch let error{
+            print(error)
         }
     }
 }
