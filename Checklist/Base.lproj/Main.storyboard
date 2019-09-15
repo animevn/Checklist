@@ -289,7 +289,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6s5-yo-ZGW">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6s5-yo-ZGW">
                                                     <rect key="frame" x="251" y="9.5" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="onSwitchChanged:" destination="amD-7u-qOi" eventType="valueChanged" id="Cqa-pQ-6CC"/>
