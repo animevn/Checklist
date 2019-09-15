@@ -17,7 +17,7 @@ class ChecklistVC: UITableViewController, ItemDetailDelegate{
         title = checklist.name
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int)->Int{
         return items.count
     }
     
