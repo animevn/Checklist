@@ -41,6 +41,7 @@ class AllListsVC:UITableViewController, ListDetailDelegate, UINavigationControll
         cell.textLabel?.text = "\(checklist.name)"
         cell.detailTextLabel?.text = checklist.countUnchecked()
         cell.accessoryType = .detailDisclosureButton
+        cell.imageView?.image = UIImage(named: checklist.iconName)
         return cell
     }
     
@@ -103,7 +104,6 @@ class AllListsVC:UITableViewController, ListDetailDelegate, UINavigationControll
     }
     
     func listDetail(_ controller: ListDetailVC, didFinishEditing checklist: Checklist) {
-        tableView.reloadData()
         dismiss(animated: true, completion: nil)
     }
     

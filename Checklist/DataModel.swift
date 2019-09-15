@@ -17,8 +17,8 @@ class DataModel{
         loadChecklist()
         registerDefaults()
         handleFirstTime()
-        print("Documents folder is \(documentsDirectory())")
-        print("Data file path is \(dataFilePath())")
+//        print("Documents folder is \(documentsDirectory())")
+//        print("Data file path is \(dataFilePath())")
     }
     
     private func registerDefaults(){
@@ -39,7 +39,6 @@ class DataModel{
             userDefaults.synchronize()
         }
     }
-    
     
     
     private func documentsDirectory()->URL{
