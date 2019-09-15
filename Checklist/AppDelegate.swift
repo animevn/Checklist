@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-
+        save()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -29,8 +29,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
 
+    private func save(){
+        let navigation = window!.rootViewController as! UINavigationController
+        let controller = navigation.viewControllers.first as! AllListsVC
+        controller.saveChecklist()
+    }
     func applicationWillTerminate(_ application: UIApplication) {
-
+        save()
     }
 
 

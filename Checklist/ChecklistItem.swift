@@ -5,6 +5,7 @@ class ChecklistItem:NSObject, NSCoding{
     override init() {
         super.init()
     }
+    
     func encode(with aCoder: NSCoder) {
         aCoder.encode(text, forKey: "Text")
         aCoder.encode(checked, forKey: "Checked")
