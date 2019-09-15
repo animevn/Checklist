@@ -57,6 +57,22 @@ class AllListsVC:UITableViewController, ListDetailDelegate{
         performSegue(withIdentifier: "showChecklist", sender: checklist)
     }
     
+    override func tableView(_ tableView: UITableView,
+                            accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        
+        let navigation = storyboard!
+            .instantiateViewController(withIdentifier: "checklistDetailNavigation")
+            as! UINavigationController
+        
+        let controller = navigation.topViewController as! ListDetailVC
+        controller.deletgate = self
+        let checklist = lists[indexPath.row]
+        controller.checklistToEdit = checklist
+        navigation.modalTransitionStyle = .flipHorizontal
+        present(navigation, animated: true, completion: nil)
+        
+    }
+    
     private func addItem(checklist:Checklist){
         let newRowIndex = lists.count
         lists.append(checklist)
