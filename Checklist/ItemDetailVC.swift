@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 
 protocol ItemDetailDelegate:class{
     
@@ -48,6 +49,16 @@ class ItemDetailVC:UITableViewController, UITextFieldDelegate{
     @IBAction func onDatePickerChanged(_ sender: UIDatePicker) {
         dueDate = dpDuedate.date
         updateDueDateLabel()
+    }
+    
+    @IBAction func onSwitchChanged(_ sender: UISwitch) {
+        tfInput.resignFirstResponder()
+        if swRemind.isOn{
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound], completionHandler: {
+                granted, error in 
+            })
+        }
     }
     
     
@@ -142,8 +153,6 @@ class ItemDetailVC:UITableViewController, UITextFieldDelegate{
         hideDatePicker()
     }
     
-    
-    
     @IBAction func cancel(){
         delegate?.itemDetailDidCancel(self)
     }
@@ -154,6 +163,7 @@ class ItemDetailVC:UITableViewController, UITextFieldDelegate{
             item.text = tfInput.text!
             item.shouldRemind = swRemind.isOn
             item.dueDate = dueDate
+            item.scheduleNotification()
             delegate?.itemDetail(self, didFinishEditing: item)
         }else{
             let item = ChecklistItem()
@@ -161,9 +171,8 @@ class ItemDetailVC:UITableViewController, UITextFieldDelegate{
             item.checked = false
             item.shouldRemind = swRemind.isOn
             item.dueDate = dueDate
+            item.scheduleNotification()
             delegate?.itemDetail(self, didFinishAdding: item)
         }
     }
-    
-    
 }

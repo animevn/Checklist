@@ -23,6 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("denied")
             }
         }
+        
+//        let content = UNMutableNotificationContent()
+//        content.title = "Hello!"
+//        content.body = "Local Notification"
+//        content.sound = UNNotificationSound.default
+//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+//        let request = UNNotificationRequest(identifier: "MyNotification",
+//                                            content: content,
+//                                            trigger: trigger)
+//        notificationCenter.add(request)
         return true
     }
 
