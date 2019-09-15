@@ -1,8 +1,25 @@
 import UIKit
 
-class AllListsVC:UITableViewController, ListDetailDelegate{
+class AllListsVC:UITableViewController, ListDetailDelegate, UINavigationControllerDelegate{
     
     var dataModel:DataModel!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.delegate = self
+
+        let index = dataModel.indexOfSelectedChecklist
+        if index >= 0 && index < dataModel.lists.count{
+            let checklist = dataModel.lists[index]
+            performSegue(withIdentifier: "showChecklist", sender: checklist)
+        }
+        
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataModel.lists.count
@@ -13,7 +30,7 @@ class AllListsVC:UITableViewController, ListDetailDelegate{
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell"){
             return cell
         }else{
-            return UITableViewCell(style: .default, reuseIdentifier: "cell")
+            return UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
         }
     }
     
@@ -22,6 +39,7 @@ class AllListsVC:UITableViewController, ListDetailDelegate{
         let cell = makeCell(tableView: tableView)
         let checklist = dataModel.lists[indexPath.row]
         cell.textLabel?.text = "\(checklist.name)"
+        cell.detailTextLabel?.text = checklist.countUnchecked()
         cell.accessoryType = .detailDisclosureButton
         return cell
     }
@@ -38,7 +56,15 @@ class AllListsVC:UITableViewController, ListDetailDelegate{
         }
     }
     
+    func navigationController(_ navigationController: UINavigationController,
+                              willShow viewController: UIViewController, animated: Bool) {
+        if viewController === self{
+            dataModel.indexOfSelectedChecklist = -1
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dataModel.indexOfSelectedChecklist = indexPath.row
         let checklist = dataModel.lists[indexPath.row]
         performSegue(withIdentifier: "showChecklist", sender: checklist)
     }
@@ -81,7 +107,7 @@ class AllListsVC:UITableViewController, ListDetailDelegate{
         dismiss(animated: true, completion: nil)
     }
     
-   
+    
     
     
 }

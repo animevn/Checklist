@@ -20,5 +20,17 @@ class Checklist:NSObject, NSCoding{
         aCoder.encode(items, forKey: "Items")
     }
     
-    
+    func countUnchecked()->String{
+        var count = 0
+        for item in items where !item.checked{
+            count += 1
+        }
+        if items.count == 0{
+            return "No items"
+        }else if count == 0{
+            return "All done"
+        }else {
+            return "\(count) remaining"
+        }
+    }
 }
