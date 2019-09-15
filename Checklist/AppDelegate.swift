@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -13,6 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = navigation.viewControllers[0] as! AllListsVC
         controller.dataModel = dataModel
         
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.requestAuthorization(options: [.alert, .sound]){
+            granted, error in
+            if granted{
+                print("granted")
+            }else{
+                print("denied")
+            }
+        }
         return true
     }
 
@@ -38,7 +48,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         save()
     }
-
-
 }
 

@@ -106,8 +106,4 @@ class AllListsVC:UITableViewController, ListDetailDelegate, UINavigationControll
     func listDetail(_ controller: ListDetailVC, didFinishEditing checklist: Checklist) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
 }

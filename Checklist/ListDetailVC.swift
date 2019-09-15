@@ -83,6 +83,8 @@ class ListDetailVC:UITableViewController, UITextFieldDelegate, IconPickerDelegat
     func iconPicker(_ picker: IconPickerVC, didPick iconName: String) {
         self.iconName = iconName
         ivChecklist.image = UIImage(named: iconName)
+        tfInput.text = iconName
+        bnDone.isEnabled = true
         navigationController?.popViewController(animated: true)
     }
     

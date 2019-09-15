@@ -21,12 +21,14 @@ class ChecklistVC: UITableViewController, ItemDetailDelegate{
     private func configureCheckmark(cell:UITableViewCell, isChecked:Bool){
         let label = cell.viewWithTag(699) as! UILabel
         label.text = isChecked ? "✓" : " "
+        label.textColor = view.tintColor
     }
     
     private func configureCell(cell:UITableViewCell, indexPath:IndexPath){
         let label = cell.viewWithTag(999) as! UILabel
         label.font = .systemFont(ofSize: 16, weight: .light)
-        label.text = "\(checklist.items[indexPath.row].text)"
+        let item = checklist.items[indexPath.row]
+        label.text = "\(item.itemId): \(item.text)"
         configureCheckmark(cell: cell, isChecked: checklist.items[indexPath.row].checked)
     }
     
