@@ -16,25 +16,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let controller = navigation.viewControllers[0] as! AllListsVC
         controller.dataModel = dataModel
         
-//        let notificationCenter = UNUserNotificationCenter.current()
-//        notificationCenter.requestAuthorization(options: [.alert, .sound]){
-//            granted, error in
-//            if granted{
-//                print("granted")
-//            }else{
-//                print("denied")
-//            }
-//        }
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.requestAuthorization(options: [.alert, .sound]){
+            granted, error in
+            if granted{
+                print("granted")
+            }else{
+                print("denied")
+            }
+        }
         
-//        let content = UNMutableNotificationContent()
-//        content.title = "Hello!"
-//        content.body = "Local Notification"
-//        content.sound = UNNotificationSound.default
-//        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-//        let request = UNNotificationRequest(identifier: "MyNotification",
-//                                            content: content,
-//                                            trigger: trigger)
-//        notificationCenter.add(request)
+        let content = UNMutableNotificationContent()
+        content.title = "Hello!"
+        content.body = "Local Notification"
+        content.sound = UNNotificationSound.default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "MyNotification",
+                                            content: content,
+                                            trigger: trigger)
+        notificationCenter.add(request)
         return true
     }
 
