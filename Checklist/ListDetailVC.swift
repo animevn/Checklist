@@ -13,6 +13,7 @@ class ListDetailVC:UITableViewController, UITextFieldDelegate, IconPickerDelegat
     @IBOutlet weak var bnDone: UIBarButtonItem!
     @IBOutlet weak var tfInput: UITextField!
     @IBOutlet weak var ivChecklist: UIImageView!
+    
     weak var deletgate:ListDetailDelegate?
     var checklistToEdit:Checklist?
     var iconName:String = "Folder"
