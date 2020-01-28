@@ -34,7 +34,8 @@ class AllListsVC:UITableViewController, ListDetailDelegate, UINavigationControll
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = makeCell(tableView: tableView)
         let checklist = dataModel.lists[indexPath.row]
