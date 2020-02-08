@@ -10,19 +10,19 @@ class Item:NSObject, NSCoding{
     var itemId:Int
     
     func encode(with coder: NSCoder) {
-        coder.encode(detail, forKey: "detail")
-        coder.encode(check, forKey: "check")
-        coder.encode(dueDate, forKey: "duedate")
-        coder.encode(remind, forKey: "remind")
-        coder.encode(itemId, forKey: "itemid")
+        coder.encode(detail, forKey: Constants.detail)
+        coder.encode(check, forKey: Constants.check)
+        coder.encode(dueDate, forKey: Constants.dueDate)
+        coder.encode(remind, forKey: Constants.remind)
+        coder.encode(itemId, forKey: Constants.itemId)
     }
     
     required init?(coder: NSCoder) {
-        detail = coder.decodeObject(forKey: "detail") as! String
-        check = coder.decodeBool(forKey: "check")
-        dueDate = coder.decodeObject(forKey: "duedate") as! Date
-        remind = coder.decodeBool(forKey: "remind")
-        itemId = coder.decodeInteger(forKey: "itemid")
+        detail = coder.decodeObject(forKey: Constants.detail) as! String
+        check = coder.decodeBool(forKey: Constants.check)
+        dueDate = coder.decodeObject(forKey: Constants.dueDate) as! Date
+        remind = coder.decodeBool(forKey: Constants.remind)
+        itemId = coder.decodeInteger(forKey: Constants.itemId)
         super.init()
     }
     

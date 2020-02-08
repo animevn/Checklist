@@ -17,15 +17,15 @@ class Checklist:NSObject, NSCoding{
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(name, forKey: "name")
-        coder.encode(items, forKey: "items")
-        coder.encode(iconName, forKey: "iconName")
+        coder.encode(name, forKey: Constants.name)
+        coder.encode(items, forKey: Constants.items)
+        coder.encode(iconName, forKey: Constants.iconName)
     }
     
     required init?(coder: NSCoder) {
-        name = coder.decodeObject(forKey: "name") as! String
-        items = coder.decodeObject(forKey: "items") as! [Item]
-        iconName = coder.decodeObject(forKey: "iconName") as! String
+        name = coder.decodeObject(forKey: Constants.name) as! String
+        items = coder.decodeObject(forKey: Constants.items) as! [Item]
+        iconName = coder.decodeObject(forKey: Constants.iconName) as! String
     }
     
     func countNotChecked()->String{
