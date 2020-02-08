@@ -41,6 +41,7 @@ class ItemDetailController:UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tfDetail.delegate = self
         updateItem()
     }
     
@@ -63,9 +64,25 @@ class ItemDetailController:UITableViewController{
     }
     
     @IBAction func onButtonCancelPressed(_ sender: UIBarButtonItem) {
+        delegate?.cancel()
     }
     
     @IBAction func onButtonDonePressed(_ sender: UIBarButtonItem) {
+        if let item = itemToEdit{
+            item.detail = tfDetail.text!
+            item.remind = swRemind.isOn
+            item.dueDate = dueDate
+            item.scheduleNotification()
+            delegate?.finishEditing(item: item)
+        }else{
+            let item = Item()
+            item.detail = tfDetail.text!
+            item.remind = swRemind.isOn
+            item.dueDate = dueDate
+            item.check = false
+            item.scheduleNotification()
+            delegate?.finishAdding(item: item)
+        }
     }
 }
 

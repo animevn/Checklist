@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigation = window?.rootViewController as! UINavigationController
         let controller = navigation.viewControllers[0] as! AllListController
         controller.dataModel = dataModel
+        requestNotification()
         return true
     }
 
@@ -27,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         print("app did enter background")
+        dataModel.save()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -35,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         print("app did terminate")
+        dataModel.save()
     }
 }
 

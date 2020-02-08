@@ -12,6 +12,7 @@ struct Constants{
     static let segueShowItem = "show_item"
     static let segueAddItem = "add_item"
     
+    static let allListCell = "all_list_cell"
     static let checklistCell = "checklist"
     static let iconPickerCell = "icon"
     
