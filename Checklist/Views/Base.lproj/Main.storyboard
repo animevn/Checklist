@@ -23,7 +23,7 @@
                     <navigationItem key="navigationItem" title="Checklist Table" id="cnC-CV-D3S">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GlP-Za-qLI">
                             <connections>
-                                <segue destination="vS1-eh-xx0" kind="show" id="OCe-DM-cNH"/>
+                                <segue destination="vS1-eh-xx0" kind="show" identifier="add_checklist" id="OCe-DM-cNH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -44,15 +44,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="checklist" id="pym-ua-sUZ">
-                                <rect key="frame" x="0.0" y="28" width="320" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="checklist" rowHeight="50" id="pym-ua-sUZ">
+                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pym-ua-sUZ" id="8Xl-ts-u00">
-                                    <rect key="frame" x="0.0" y="0.0" width="261" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="261" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="29" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r3N-rd-wVo">
+                                            <rect key="frame" x="46" y="0.0" width="207" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="19" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="25" translatesAutoresizingMaskIntoConstraints="NO" id="don-Z0-1dt">
+                                            <rect key="frame" x="16" y="0.0" width="20" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="uhE-Ew-y7l"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="don-Z0-1dt" firstAttribute="leading" secondItem="8Xl-ts-u00" secondAttribute="leadingMargin" id="AdO-i7-fov"/>
+                                        <constraint firstItem="r3N-rd-wVo" firstAttribute="leading" secondItem="don-Z0-1dt" secondAttribute="trailing" constant="10" id="KH2-nl-PZv"/>
+                                        <constraint firstAttribute="bottom" secondItem="don-Z0-1dt" secondAttribute="bottom" id="QgH-zg-Z4g"/>
+                                        <constraint firstItem="don-Z0-1dt" firstAttribute="top" secondItem="8Xl-ts-u00" secondAttribute="top" id="VRN-WF-Udo"/>
+                                        <constraint firstItem="r3N-rd-wVo" firstAttribute="trailing" secondItem="8Xl-ts-u00" secondAttribute="trailingMargin" id="aLH-4S-c8W"/>
+                                        <constraint firstAttribute="bottom" secondItem="r3N-rd-wVo" secondAttribute="bottom" id="bDe-eV-Etg"/>
+                                        <constraint firstItem="r3N-rd-wVo" firstAttribute="top" secondItem="8Xl-ts-u00" secondAttribute="top" id="uHC-It-s4a"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="1CI-5p-9Zw" kind="show" trigger="accessoryAction" id="PF2-j1-Wwr"/>
+                                    <segue destination="1CI-5p-9Zw" kind="show" identifier="show_item" trigger="accessoryAction" id="PF2-j1-Wwr"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -64,7 +90,7 @@
                     <navigationItem key="navigationItem" title="Checklist" id="nKa-vC-Z8Q">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Fn8-el-ud0">
                             <connections>
-                                <segue destination="1CI-5p-9Zw" kind="show" id="i3b-6a-gBa"/>
+                                <segue destination="1CI-5p-9Zw" kind="show" identifier="add_item" id="i3b-6a-gBa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -124,6 +150,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yi7-Bk-yaT">
                                                     <rect key="frame" x="255" y="11" width="51" height="38"/>
+                                                    <connections>
+                                                        <action selector="onSwitchChanged:" destination="pAM-PR-xOw" eventType="valueChanged" id="TmL-UO-kPn"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -315,7 +344,7 @@
                         <outlet property="bnDone" destination="cLb-h0-oF8" id="6Qb-bw-wWR"/>
                         <outlet property="ivIcon" destination="LeA-y1-wua" id="oBI-Wy-rPA"/>
                         <outlet property="lbIcon" destination="Mut-xP-pg2" id="TGB-Pz-bLF"/>
-                        <outlet property="tfDetail" destination="6px-hh-wZO" id="nwT-pR-GM9"/>
+                        <outlet property="tfName" destination="6px-hh-wZO" id="nwT-pR-GM9"/>
                         <segue destination="ocP-dI-6wE" kind="show" identifier="icon_picker" id="vZl-Qu-Sfd"/>
                     </connections>
                 </tableViewController>
@@ -413,6 +442,6 @@
         <image name="Appointments" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PF2-j1-Wwr"/>
+        <segue reference="i3b-6a-gBa"/>
     </inferredMetricsTieBreakers>
 </document>

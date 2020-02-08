@@ -1,6 +1,6 @@
 import Foundation
 
-class DataMode{
+class DataModel{
     var lists:[Checklist] = [Checklist]()
     var indexOfSelectedChecklist:Int{
         get{
