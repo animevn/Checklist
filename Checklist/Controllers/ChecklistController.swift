@@ -25,7 +25,7 @@ class ChecklistController:UITableViewController{
             let destination = segue.destination as! UINavigationController
             let controller = destination.topViewController as! ItemDetailController
             controller.delegate = self
-            controller.itemToEdit = nil
+            controller.delegate = self
             if let indexPath = tableView.indexPath(for: sender as! UITableViewCell){
                 controller.itemToEdit = checklist.items[indexPath.row]
             }
@@ -85,8 +85,6 @@ extension ChecklistController:ItemDetailDelegate{
         tableView.reloadData()
         dismiss(animated: true)
     }
-    
-    
     
 }
 

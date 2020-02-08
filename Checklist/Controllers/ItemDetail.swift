@@ -31,7 +31,7 @@ class ItemDetailController:UITableViewController{
     private func updateItem(){
         if let item = itemToEdit{
             title = Constants.editItem
-            tfDetail.text = item.description
+            tfDetail.text = item.detail
             bnDone.isEnabled = true
             swRemind.isOn = item.remind
             dueDate = item.dueDate
@@ -163,7 +163,6 @@ extension ItemDetailController{
             return nil
         }
     }
-    
 }
 
 extension ItemDetailController:UITextFieldDelegate{

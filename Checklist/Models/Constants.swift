@@ -12,6 +12,9 @@ struct Constants{
     static let segueShowItem = "show_item"
     static let segueAddItem = "add_item"
     
+    //put this value to storyboardID of navigation controller
+    static let navigationChecklistDetail = "checklist_detail_navigation"
+    
     static let allListCell = "all_list_cell"
     static let checklistCell = "checklist"
     static let iconPickerCell = "icon"

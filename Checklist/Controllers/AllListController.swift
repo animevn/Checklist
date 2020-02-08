@@ -107,6 +107,20 @@ extension AllListController{
         let checklist = dataModel.lists[indexPath.row]
         performSegue(withIdentifier: Constants.segueShowChecklist, sender: checklist)
     }
+    
+    //open navigation without segue
+    //open from accessory button
+    override func tableView(_ tableView: UITableView,
+                            accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        let navigation = storyboard!
+            .instantiateViewController(withIdentifier: Constants.navigationChecklistDetail)
+            as! UINavigationController
+        let controller = navigation.topViewController as! ChecklistDetailController
+        controller.delegate = self
+        controller.checklistToEdit = dataModel.lists[indexPath.row]
+        navigation.modalPresentationStyle = .fullScreen
+        present(navigation, animated: true, completion: nil)
+    }
 }
 
 

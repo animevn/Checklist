@@ -38,7 +38,7 @@ class Item:NSObject, NSCoding{
     
     deinit {
         print("The class \(type(of: self)) was remove from memory")
-        removeNotification()
+//        removeNotification()
     }
     
     func toggleCheck(){

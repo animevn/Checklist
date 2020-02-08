@@ -83,8 +83,6 @@ extension ChecklistDetailController:IconPickerDelegate{
         }
     }
     
-    
-    
 }
 
 extension ChecklistDetailController:UITextFieldDelegate{
@@ -97,15 +95,5 @@ extension ChecklistDetailController:UITextFieldDelegate{
         return true
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
