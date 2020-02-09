@@ -5,7 +5,6 @@ struct Constants{
     static let iconNames = ["No Icon", "Appointments", "Birthdays", "Chores", "Drinks", "Folder",
     "Groceries", "Inbox", "Photos", "Trips"]
     
-    static let segueChecklistDetail = "checklist_detail"
     static let segueIconPicker = "icon_picker"
     static let segueShowChecklist = "show_checklist"
     static let segueAddChecklist = "add_checklist"
